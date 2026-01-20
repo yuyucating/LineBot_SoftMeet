@@ -109,5 +109,5 @@ def Bubble_Greeting():
     "flex": 0
   }
 }
-    carousel = {"type": "carousel", "contents": bubble}
+    carousel = {"type": "carousel", "contents": [bubble]}
     return carousel
