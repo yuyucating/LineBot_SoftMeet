@@ -57,7 +57,7 @@ def message_text(event):
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
         if event.type == "follow" or event.message.text.strip() == "Hi":
-            DefaultResponse.Greeting()
+            DefaultResponse.Greeting(event, line_bot_api)
             
         
         
