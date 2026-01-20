@@ -1,5 +1,5 @@
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 from flask import Flask, request, abort, render_template, jsonify
 
@@ -19,8 +19,8 @@ from linebot.v3.webhooks import (FollowEvent, MessageEvent, TextMessageContent, 
 
 from responses import DefaultResponse
 
-# key_path = os.path.join(os.path.dirname(__file__), "db.env")
-# load_dotenv(key_path)
+key_path = os.path.join(os.path.dirname(__file__), "settings", ".env")
+load_dotenv(key_path)
 
 access_token = os.getenv("LINE_CHANNEL_ACCESS_TOKEN")
 secret = os.getenv("LINE_CHANNEL_SECRET")
