@@ -15,7 +15,7 @@ from linebot.v3.messaging import (
     MessagingApi,
     FlexMessage, FlexContainer
 )
-from linebot.v3.webhooks import (MessageEvent, TextMessageContent, PostbackEvent)
+from linebot.v3.webhooks import (FollowEvent, MessageEvent, TextMessageContent, PostbackEvent)
 
 from responses import DefaultResponse
 
@@ -50,13 +50,18 @@ def callback():
 
     return 'OK'
 
+@handler.add(FollowEvent)
+def handle_follow(event):
+    with ApiClient(configuration) as api_client:
+        line_bot_api = MessagingApi(api_client)
+        DefaultResponse.Greeting(event, line_bot_api)
 
 @handler.add(MessageEvent, message=TextMessageContent)
 def message_text(event):
     print("★ app.py || message_text()")
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
-        if event.type == "follow" or event.message.text.strip() == "Hi":
+        if event.message.text.strip() == "Hi":
             DefaultResponse.Greeting(event, line_bot_api)
             
         
