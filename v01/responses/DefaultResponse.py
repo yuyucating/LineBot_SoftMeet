@@ -64,7 +64,7 @@ def Bubble_Greeting():
                 "color": "#aaaaaa",
                 "size": "sm",
                 "flex": 1,
-                "wrap": true
+                "wrap": True
               }
             ]
           }
