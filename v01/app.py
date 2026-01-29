@@ -73,6 +73,9 @@ def handler_postback(event):
         print(f"★ POSTBACK || {event.postback.data}")
         line_bot_api = MessagingApi(api_client)
         
+@app.route("/", methods=['GET'])
+def index():
+    return "Hello, LineBot is running for Soft Meet!"
         
 if __name__ == "__main__":
     # debug=True 方便開發時 auto reload
